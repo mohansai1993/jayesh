@@ -1,0 +1,5 @@
+Dockerfile
+.next/cache/
+.dockerignore
+node_modules
+*.log
