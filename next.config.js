@@ -18,16 +18,19 @@ const loadSecrets = async () => {
 loadSecrets();
 
 module.exports = {
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: false,
   compiler: {
     // removeConsole: process.env.NODE_ENV === "production",
   },
-  output: 'standalone',
+  output: "standalone",
   async redirects() {
     return [
       {
-        source: '/main',
-        destination: '/set-up',
+        source: "/main",
+        destination: "/set-up",
         permanent: true,
       },
     ];
