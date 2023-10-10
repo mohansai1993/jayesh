@@ -1,6 +1,6 @@
 // pages/index.js
 import Head from "next/head";
-import styles from "./blog.module.css";
+import styles from "./updates.module.css";
 import Layout from "hocs/layout";
 const Updates = () => {
   const posts = [

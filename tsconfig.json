@@ -21,13 +21,21 @@
     // set import aliases for components
     "baseUrl": "./src/",
     "paths": {
-      "@/components/*":["components/*"],
-    }
+      "@/components/*": [
+        "components/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
