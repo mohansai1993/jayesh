@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import images from "../../utils/images";
 import { routes } from "../../utils";
-import { Dropdown, DropdownButton } from "react-bootstrap";
-import styles from "../../styles/Dropdown.module.css";
 const Header = () => {
   return (
     <div className="mainNav">
@@ -66,7 +64,7 @@ const Header = () => {
                   <ul className="dropdown-menu">
                     <Link
                       className="dropdown-item"
-                      href="/blog"
+                      href={routes.blog}
                       style={{
                         color: "rgba(0,0,0,0.55)",
                         fontWeight: "100",
@@ -76,7 +74,7 @@ const Header = () => {
                     </Link>
                     <Link
                       className="dropdown-item"
-                      href="/updates"
+                      href={routes.updates}
                       style={{
                         color: "rgba(0,0,0,0.55)",
                         fontWeight: "100",
