@@ -1,6 +1,6 @@
 // pages/index.js
 import Head from "next/head";
-import styles from "./../styles/Updates.module.css";
+import styles from "./../styles/updates.module.css";
 import Layout from "hocs/layout";
 import Footer from "@/components/footer";
 const Updates = () => {
