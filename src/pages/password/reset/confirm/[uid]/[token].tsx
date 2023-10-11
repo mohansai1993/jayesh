@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Layout from "../../../../../hocs/layout";
 import { Oval } from "react-loader-spinner";
 import { resetPasswordConfirm } from "../../../../../actions/auth";
@@ -33,7 +33,7 @@ const ResetPasswordConfirmPage = () => {
 
     if (new_password === re_new_password) {
       const res = await dispatch(
-        resetPasswordConfirm(uid, token, new_password, re_new_password)
+        resetPasswordConfirm(uid, token, new_password, re_new_password),
       );
       if (res?.new_password) {
         setResetPasswordError(res?.new_password);
@@ -53,10 +53,12 @@ const ResetPasswordConfirmPage = () => {
     }
   };
 
-  if (typeof window !== "undefined" && requestSent) {
-    successToaster("Your password has been changed!");
-    router.push(routes.index);
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined" && requestSent) {
+      successToaster("Your password has been changed!");
+      router.push(routes.index);
+    }
+  }, [requestSent]);
 
   return (
     <Layout
