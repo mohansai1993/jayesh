@@ -4,14 +4,6 @@ import styles from "./../styles/npost.module.css";
 import Layout from "hocs/layout";
 import Footer from "@/components/footer";
 const Npost = () => {
-  const posts = [
-    {
-      title: "First Post",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing eli  repellendus harum dolores vitae beatae reprehenderit hic autem aliquid nemo, eos eum nobis nam fugiat accusamus ut quis natus sit nisi amet ipsa omnis esse aspernatur ullam temporibus.   Delectus nostrum doloribus optio, voluptas maiores, deserunt atque provident cupiditate beatae ut doloremque?",
-    },
-  ];
-
   return (
     <Layout>
       <div className={styles.container}>

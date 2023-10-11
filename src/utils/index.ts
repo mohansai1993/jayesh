@@ -13,9 +13,9 @@ export const routes = {
   setUp: "set-up",
   index: "/",
   signup: "signup",
-  blog:"blog",
-  Npost:'npost',
-  updates:"updates",
+  blog: "blog",
+  npost: "npost",
+  updates: "updates",
   resetPassword: "reset-password",
   approval: "approval",
   privacy: "privacy-policy",
@@ -23,7 +23,6 @@ export const routes = {
   contactUs: "contact-us",
   refund: "refund-policy",
   tutorial: "tutorial.html",
-
 };
 
 export const errorToaster = (text: string) => {
@@ -84,7 +83,7 @@ export const dataSourceList = [
   { id: 3, url: images.ga4, name: "Google Analytics" },
   { id: 4, url: images.searchConsole, name: "Search Console" },
   { id: 5, url: images.bingAds, name: "Bing Ads" },
-  { id: 6, url: images.instagram, name: "Instagram Insights"}
+  { id: 6, url: images.instagram, name: "Instagram Insights" },
   //{ id: 3, url: images.instagram, name: "instagram" },
   //{ id: 4, url: images.linkedin, name: "linkedin" },
 ];
@@ -136,13 +135,12 @@ export const MONTHS = [
   "December",
 ];
 
-
 export const FILTERED_COLUMNS = [
   "Campaign",
   "Status",
   "Advertising Channel Type",
-  "Bidding Strategy Type"
-]
+  "Bidding Strategy Type",
+];
 
 // This function is used in both setUp and search for authentication and getting value from cookies purposes.
 export async function checkAuth(context) {
@@ -156,37 +154,40 @@ export async function checkAuth(context) {
       redirect: {
         destination: routes.login,
         permanent: false,
-      }
-    }
+      },
+    };
   }
   try {
     const body = JSON.stringify({ token: access });
     const copterRes = await axios.post(
       `${API_URL}/auth/jwt/verify/`,
       body,
-      REQUEST_HEADERS
+      REQUEST_HEADERS,
     );
     if (copterRes?.data?.code !== "token_not_valid") {
-      return { props: { tokenKeyFromCookie } }
+      return { props: { tokenKeyFromCookie } };
     }
     return {
       redirect: {
         destination: routes.login,
         permanent: false,
-      }
-    }
-
+      },
+    };
   } catch (err) {
     return {
       redirect: {
         destination: routes.login,
         permanent: false,
-      }
-    }
+      },
+    };
   }
 }
 
-export function updateDataConnection(query, setDataConnectionAccounts, tokenKeyFromCookie) {
+export function updateDataConnection(
+  query,
+  setDataConnectionAccounts,
+  tokenKeyFromCookie,
+) {
   if (!isEmpty(query)) {
     // If the user has already selected a google ads account, then it won't go away and will be
     // saved along with the newly selected account, such as facebook ads, to the db.
@@ -196,7 +197,10 @@ export function updateDataConnection(query, setDataConnectionAccounts, tokenKeyF
         ? prev.filter((acc) => acc.type !== query.type)
         : [];
       // Return the filtered array concatenated with the new query
-      return [...filteredPrev, { ...query, token_secret_key: tokenKeyFromCookie }];
+      return [
+        ...filteredPrev,
+        { ...query, token_secret_key: tokenKeyFromCookie },
+      ];
     });
   }
 }
