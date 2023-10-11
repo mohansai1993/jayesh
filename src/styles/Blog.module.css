@@ -1,7 +1,8 @@
 /* styles/Home.module.css */
+
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 1rem; /* Adjust padding for better mobile readability */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,16 +18,18 @@
 }
 .main > div {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 100%; /* Make sure content takes full width on small screens */
+  padding: 16px; /* Add padding for better mobile readability */
   margin-top: 32px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .main > div > div > div > form {
   gap: 16px;
   display: flex;
-  height: 64px;
   justify-content: center;
-  align-items: center;
+  margin-top: 16px;
 }
 
 .main > div > div > div > form > input {
@@ -35,20 +38,14 @@
 .main > div > div > div > form > button {
   background-color: rgb(3, 130, 102);
   height: 45px;
+  border: none;
+  padding: 0 16px;
 }
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  text-align: center;
+  font-size: 3rem; /* Adjust font size for better mobile readability */
 }
 
 .grid {
@@ -57,13 +54,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%; /* Make sure the grid takes full width on small screens */
   max-width: 800px;
   margin-top: 3rem;
 }
 
 .card {
   margin: 1rem;
-  flex-basis: 45%;
+  width: calc(50% - 2rem); /* Two cards per row on small screens */
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -75,13 +73,6 @@
     border-color 0.15s ease;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
 .card h3 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
@@ -89,8 +80,7 @@
 
 .card p {
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1rem; /* Adjust font size for better mobile readability */
 }
 
 .logo {
@@ -99,23 +89,14 @@
 
 @media (max-width: 600px) {
   .grid {
-    width: 100%;
-    flex-direction: column;
+    width: 100%; /* Single column layout on very small screens */
   }
 }
 
-/* styles/Post.module.css */
 .post {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   background-color: #e6f7ec;
-}
-
-.post > h2 {
-  color: #2e6e3e;
-}
-.post > div {
-  margin-top: 16px;
+  padding: 16px;
+  margin: 16px 0;
+  border: 1px solid black;
+  border-radius: 32px;
 }

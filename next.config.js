@@ -32,4 +32,13 @@ module.exports = {
       },
     ];
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.jsx$/, // You might need to adjust the regex pattern based on your file extensions
+      include: /node_modules/,
+      use: ["react-jsx"],
+    });
+
+    return config;
+  },
 };

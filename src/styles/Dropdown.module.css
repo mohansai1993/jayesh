@@ -1,0 +1,12 @@
+.dropdown {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  font-weight: 300 !important;
+}
+
+/* Customize text color and hover effect */
+.dropdown:hover {
+  outline: none !important;
+  border: none !important;
+}

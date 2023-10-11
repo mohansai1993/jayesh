@@ -1,7 +1,8 @@
 // pages/index.js
 import Head from "next/head";
-import styles from "./npost.module.css";
+import styles from "./../styles/npost.module.css";
 import Layout from "hocs/layout";
+import Footer from "@/components/footer";
 const Npost = () => {
   const posts = [
     {
@@ -409,6 +410,7 @@ const Npost = () => {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </Layout>
   );

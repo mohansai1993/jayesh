@@ -1,7 +1,8 @@
 // pages/index.js
 import Head from "next/head";
-import styles from "./Blog.module.css";
+import styles from "./../styles/Blog.module.css";
 import Layout from "hocs/layout";
+import Footer from "@/components/footer";
 const Blog = () => {
   const posts = [
     {
@@ -153,6 +154,7 @@ const Blog = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </Layout>
   );
 };

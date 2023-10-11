@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import images from "../../utils/images";
 import { routes } from "../../utils";
-import { Colors } from "../../../public/assets/colors";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Dropdown, DropdownButton } from "react-bootstrap";
+import styles from "../../styles/Dropdown.module.css";
 const Header = () => {
   return (
     <div className="mainNav">
@@ -24,7 +24,7 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0 flex items-center">
               <li className="nav-item">
                 <a
                   className="nav-link active text-main medium-font"
@@ -50,48 +50,26 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href={routes.updates} className="nav-link">
-                  Updates
-                </Link>
-              </li>
-              {/* <li className="dropdown">
-                <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+                <DropdownButton
+                  id="dropdown-basic-button"
+                  variant="white"
+                  className={styles.dropdown}
+                  style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    outline: "none",
+                  }}
+                  title="Community"
                 >
-                  Dropdown
-                </button>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <Link href={routes.contactUs}>
-                    <a className="dropdown-item">Contact us</a>
-                  </Link>
-                  <Link href={routes.updates}>
-                    <a className="dropdown-item">Updates</a>
-                  </Link>
-                </div>
-              </li> */}
-              <li>
-                <Link href={routes.blog} className="nav-link">
-                  Blog
-                </Link>
+                  <Dropdown.Item href={routes.blog}>Blog</Dropdown.Item>
+                  <Dropdown.Item href={routes.updates}>Updates</Dropdown.Item>
+                </DropdownButton>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#connections">
                   Connections
                 </a>
               </li>
-              {/*
-              <li className="nav-item">
-                <a className="nav-link" href="https://github.com">GitHub</a>
-              </li>
-              */}
             </ul>
             <div className="headerBtn d-flex gap-2">
               <Link href={routes.login} className="btn f-13 text-main">
