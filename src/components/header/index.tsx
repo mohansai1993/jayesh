@@ -26,23 +26,23 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0 flex items-center">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active text-main medium-font"
                   aria-current="page"
                   href="#"
                 >
                   Product
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href={routes.tutorial}>
+                <Link className="nav-link" href={routes.tutorial}>
                   Tutorial
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#price">
+                <Link className="nav-link" href="#price">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link href={routes.contactUs} className="nav-link">
@@ -50,25 +50,57 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <DropdownButton
-                  id="dropdown-basic-button"
-                  variant="white"
-                  className={styles.dropdown}
-                  style={{
-                    border: "none",
-                    backgroundColor: "transparent",
-                    outline: "none",
-                  }}
-                  title="Community"
-                >
-                  <Dropdown.Item href={routes.blog}>Blog</Dropdown.Item>
-                  <Dropdown.Item href={routes.updates}>Updates</Dropdown.Item>
-                </DropdownButton>
+                <div className="dropdown">
+                  <button
+                    className="btn dropdown-toggle p-0 border border-0 "
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{
+                      color: "rgba(0,0,0,0.55)",
+                      fontWeight: "100",
+                    }}
+                  >
+                    Community
+                  </button>
+                  <ul className="dropdown-menu">
+                    <Link
+                      className="dropdown-item"
+                      href="/blog"
+                      style={{
+                        color: "rgba(0,0,0,0.55)",
+                        fontWeight: "100",
+                      }}
+                    >
+                      Blog
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      href="/updates"
+                      style={{
+                        color: "rgba(0,0,0,0.55)",
+                        fontWeight: "100",
+                      }}
+                    >
+                      Updates
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      href="#"
+                      style={{
+                        color: "rgba(0,0,0,0.55)",
+                        fontWeight: "100",
+                      }}
+                    >
+                      Social Media
+                    </Link>
+                  </ul>
+                </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#connections">
+                <Link className="nav-link" href="#connections">
                   Connections
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="headerBtn d-flex gap-2">

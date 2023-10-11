@@ -3,10 +3,17 @@
   outline: none !important;
   background-color: transparent !important;
   font-weight: 300 !important;
+  border-color: transparent;
 }
 
 /* Customize text color and hover effect */
 .dropdown:hover {
   outline: none !important;
   border: none !important;
+  border-color: transparent;
+}
+.dropdown:focus {
+  outline: none !important;
+  border: none !important;
+  border-color: transparent;
 }
