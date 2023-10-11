@@ -188,7 +188,7 @@ const Npost = () => {
             <p>
               Here’s the full overview of the different rulings by the European
               Data Protection Authorities.
-            </p>{" "}
+            </p>
             <h2
               className={styles.x}
               id="google-analytics-is-illegal-say-european-dpas"
@@ -247,7 +247,7 @@ const Npost = () => {
             <p>
               Here’s the full overview of the different rulings by the European
               Data Protection Authorities.
-            </p>{" "}
+            </p>
             <h2
               className={styles.x}
               id="google-analytics-is-illegal-say-european-dpas"
@@ -306,7 +306,7 @@ const Npost = () => {
             <p>
               Here’s the full overview of the different rulings by the European
               Data Protection Authorities.
-            </p>{" "}
+            </p>
             <h2
               className={styles.x}
               id="google-analytics-is-illegal-say-european-dpas"
@@ -391,9 +391,8 @@ const Npost = () => {
                 temporibus. Delectus nostrum doloribus optio, voluptas maiores,
                 deserunt atque provident cupiditate beatae ut doloremque?
               </p>
-              <div className="container  max-w-screen-sm mt-12">
+              <div>
                 <form
-                  className="mt-8 sm:flex justify-center"
                   action="https://plausible.us20.list-manage.com/subscribe/post?u=aa3638e2a24986bbda7c17506&amp;id=a307649d1b"
                   method="post"
                   id="newsletter-signup"
@@ -402,12 +401,9 @@ const Npost = () => {
                     type="email"
                     name="EMAIL"
                     required
-                    className="appearance-none w-full px-5 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs"
                     placeholder="Enter your email"
                   />
-                  <button className="w-full flex items-center justify-center px-5  border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                    Subscribe
-                  </button>
+                  <button>Subscribe</button>
                 </form>
               </div>
             </div>
