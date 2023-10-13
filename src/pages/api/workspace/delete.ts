@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const access = cookies?.access ?? false;
     const { workspaceName } = req?.body;
 
-    if (!access) {
+    if (access === false) {
       return res?.status(401)?.json({
         error: "User unauthorized to make this request",
       });
@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/workspace/delete`,
         body,
-        config,
+        config
       );
       if (copterRes?.status === 200) {
         return res
@@ -40,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: "Error occurred when deleting the workspace",
       });
-    } catch (err: any) {
+    } catch (err) {
       return res?.status(500)?.json({
         error: err.response?.data?.message,
       });

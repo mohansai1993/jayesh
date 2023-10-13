@@ -8,13 +8,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const cookies = cookie.parse(req?.headers?.cookie ?? "");
     const access = cookies?.access ?? false;
 
-    if (!access) {
+    if (access === false) {
       return res?.status(401)?.json({
         error: "User unauthorized to make this request",
       });
     }
 
-    const { workspaceName, accounts } = req?.body;
+    const {
+      workspaceName,
+      accounts,
+    } = req?.body;
 
     const body = JSON.stringify({
       workspaceName,
@@ -32,7 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/workspace/create`,
         body,
-        config,
+        config
       );
       if (copterRes?.status === 200) {
         return res
@@ -42,7 +45,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: "An error occurred while attempting to create the workspace.",
       });
-    } catch (err: any) {
+    } catch (err) {
       return res?.status(500)?.json({
         error: err?.response?.data,
       });

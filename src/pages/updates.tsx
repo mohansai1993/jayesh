@@ -69,7 +69,7 @@ const Updates = () => {
         <div className={styles.border}></div>
         <div className={styles.grid}>
           {posts.map((post, index) => (
-            <div className={styles.post}>
+            <div className={styles.post} key={index}>
               <Post key={index} title={post.title} content={post.content} />
               {/* <a href={post.path} className={styles.path}>
                 Continue reading -&gt;

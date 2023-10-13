@@ -1,11 +1,17 @@
-import { WORKSPACE_LOAD_DATA_SUCCESS, WORKSPACE_LOAD_DATA_FAIL } from "./types";
+import {
+  WORKSPACE_LOAD_DATA_SUCCESS,
+  WORKSPACE_LOAD_DATA_FAIL,
+} from "./types";
 import axios from "axios";
 import { REQUEST_HEADERS } from "../commonRequestHeader";
 import { AppDispatch } from "../store";
 
 export const getWorkspaces = () => async (dispatch: AppDispatch) => {
   try {
-    const res = await axios.get(`/api/workspace/get`, REQUEST_HEADERS);
+    const res = await axios.get(
+      `/api/workspace/get`,
+      REQUEST_HEADERS
+    );
     if (res.status === 200) {
       dispatch({
         type: WORKSPACE_LOAD_DATA_SUCCESS,
@@ -18,7 +24,7 @@ export const getWorkspaces = () => async (dispatch: AppDispatch) => {
       });
       return { success: false };
     }
-  } catch (err: any) {
+  } catch (err) {
     dispatch({
       type: WORKSPACE_LOAD_DATA_FAIL,
     });

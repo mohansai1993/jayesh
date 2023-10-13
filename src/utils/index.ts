@@ -161,7 +161,7 @@ export async function checkAuth(context: any) {
     const copterRes = await axios.post(
       `${API_URL}/auth/jwt/verify/`,
       body,
-      REQUEST_HEADERS,
+      REQUEST_HEADERS
     );
     if (copterRes?.data?.code !== "token_not_valid") {
       return { props: { tokenKeyFromCookie } };
@@ -185,7 +185,7 @@ export async function checkAuth(context: any) {
 export function updateDataConnection(
   query,
   setDataConnectionAccounts,
-  tokenKeyFromCookie,
+  tokenKeyFromCookie
 ) {
   if (!isEmpty(query)) {
     // If the user has already selected a google ads account, then it won't go away and will be

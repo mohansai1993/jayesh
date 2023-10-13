@@ -15,7 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/auth/users/activation/`,
         body,
-        REQUEST_HEADERS,
+        REQUEST_HEADERS
       );
       if (copterRes?.status === 200) {
         return res
@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: "Account activation failed",
       });
-    } catch (err: any) {
+    } catch (err) {
       return res?.status(500)?.json({
         error: "An error occurred during account activation",
       });

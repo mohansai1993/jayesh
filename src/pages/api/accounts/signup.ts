@@ -18,17 +18,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/auth/users/`,
         body,
-        REQUEST_HEADERS,
-      );
+        REQUEST_HEADERS
+      );    
       if (copterRes?.status === 201) {
-        return res
-          ?.status(copterRes?.status)
-          ?.json({ success: "User created" });
+        return res?.status(copterRes?.status)?.json({ success: "User created" });
       }
       return res?.status(copterRes?.status)?.json({
         error: "Account registration failed",
       });
-    } catch (err: any) {
+    } catch (err) {
       return res?.status(500)?.json({
         error: err?.response?.data,
       });

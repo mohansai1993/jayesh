@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const cookies = cookie?.parse(req?.headers?.cookie ?? "");
     const access = cookies?.access ?? false;
 
-    if (!access) {
+    if (access === false) {
       return res?.status(401)?.json({
         error: "User unauthorized to make this request",
       });
@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const body = JSON.stringify({
       oldWorkspaceName,
       newWorkspaceName,
-      accounts,
+      accounts
     });
 
     try {
@@ -33,7 +33,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/workspace/update`,
         body,
-        config,
+        config
       );
       if (copterRes?.status === 200) {
         return res
@@ -43,7 +43,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: "Error occurred when updating the workspace",
       });
-    } catch (err: any) {
+    } catch (err) {
       return res?.status(500)?.json({
         error: err.response?.data,
       });
