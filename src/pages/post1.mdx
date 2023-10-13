@@ -1,6 +1,11 @@
 import React from "react";
-import MainLayout from "hocs/MainLayout";
-import { ArticleContainer, Title, SectionTitle, Paragraph } from "./../../public/assets/styles/styles.js";
+import MainLayout from "./../hocs/mainLayout.tsx";
+import {
+  ArticleContainer,
+  Title,
+  SectionTitle,
+  Paragraph,
+} from "./../../public/assets/styles/styles.js";
 export const meta = {
   title: "The Future of Artificial Intelligence in Everyday Life",
   date: "2023-10-12",
@@ -8,13 +13,10 @@ export const meta = {
 };
 
 export default ({ children }) => (
-  <MainLayout >
-    <ArticleContainer>
-      {children}
-    </ArticleContainer>
+  <MainLayout>
+    <ArticleContainer>{children}</ArticleContainer>
   </MainLayout>
 );
-
 
 # The Future of Artificial Intelligence in Everyday Life
 
