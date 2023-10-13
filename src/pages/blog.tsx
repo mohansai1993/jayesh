@@ -33,9 +33,9 @@ const Blog = () => {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Welcome to the Adzvisors Blog</h1>
+          <h1 className={styles.heading} >Welcome to the Adzvisors Blog</h1>
           <div>
-            <div>
+            <div className={styles.content}>
               <p>
                 Hi! We are
                 <a href="#"></a>

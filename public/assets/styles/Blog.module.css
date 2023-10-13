@@ -18,7 +18,7 @@
   align-items: center;
 }
 .border {
-  width:100%;
+  width: 100%;
   border-top: 1.5px solid rgb(217, 214, 214);
   margin-top: 32px;
   justify-self: start;
@@ -124,5 +124,16 @@
   .grid {
     width: 95%; /* Single column layout on very small screens */
     margin: 0 auto;
+  }
+  .main {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 120px;
+  }
+  .heading {
+    margin: 0;
+    line-height: 1.15;
+    text-align: center;
+    font-size: 2.4rem; /* Adjust font size for better mobile readability */
   }
 }
