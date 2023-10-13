@@ -16,7 +16,7 @@ const Blog = () => {
         "Is Google Analytics illegal? Several European Data Protection Authorities say so",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing eli  repellendus harum dolores vitae beatae reprehenderit hic autem aliquid nemo, eos eum nobis nam fugiat accusamus ut quis natus sit nisi amet ipsa omnis esse aspernatur ullam temporibus.   Delectus nostrum doloribus optio, voluptas maiores, deserunt atque provident cupiditate beatae ut doloremque?",
-      path: "/post1",
+      path: "/post",
     },
   ];
 
