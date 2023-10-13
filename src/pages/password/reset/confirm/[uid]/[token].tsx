@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import Layout from "../../../../../hocs/layout";
 import { Oval } from "react-loader-spinner";
 import { resetPasswordConfirm } from "../../../../../actions/auth";
@@ -16,7 +16,7 @@ const ResetPasswordConfirmPage = () => {
   const { loading } = useAuthReducer();
   const { uid, token } = router.query;
   const [requestSent, setRequestSent] = useState(false);
-  const [resetPasswordError, setResetPasswordError] = useState([]);
+  const [resetPasswordError, setResetPasswordError] = useState<string[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     new_password: "",
@@ -24,7 +24,8 @@ const ResetPasswordConfirmPage = () => {
   });
 
   const { new_password, re_new_password } = formData;
-  const onChange = (e: { target: HTMLInputElement }) =>
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e: SyntheticEvent) => {
@@ -32,33 +33,35 @@ const ResetPasswordConfirmPage = () => {
     setLoading(true);
 
     if (new_password === re_new_password) {
-      const res = await dispatch(
-        resetPasswordConfirm(uid, token, new_password, re_new_password),
-      );
-      if (res?.new_password) {
-        setResetPasswordError(res?.new_password);
+      try {
+        const res = await dispatch(
+          resetPasswordConfirm(
+            uid as string,
+            token as string,
+            new_password,
+            re_new_password,
+          ),
+        );
+
+        if (res.new_password) {
+          setResetPasswordError(res.new_password);
+        } else if (res.success) {
+          setRequestSent(true);
+          successToaster("Your password has been changed!");
+          router.push(routes.index);
+        } else if (res.token) {
+          errorToaster("Please check your email. Invalid token");
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
         setLoading(false);
-      }
-      if (res?.success) {
-        setRequestSent(true);
-        setLoading(false);
-      }
-      if (res?.token) {
-        setLoading(false);
-        errorToaster("please check your email, Invalid token");
       }
     } else {
       setLoading(false);
-      errorToaster("Confirm New Password is not matched.");
+      errorToaster("Confirm New Password does not match.");
     }
   };
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && requestSent) {
-      successToaster("Your password has been changed!");
-      router.push(routes.index);
-    }
-  }, [requestSent]);
 
   return (
     <Layout
@@ -72,46 +75,41 @@ const ResetPasswordConfirmPage = () => {
               <h2>Password Reset Confirm</h2>
             </div>
 
-            <form onSubmit={(e) => onSubmit(e)}>
-              <div className={"form-group  "}>
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
                 <label htmlFor="new_password">New Password</label>
                 <input
                   className="form-control"
                   type="password"
                   name="new_password"
                   value={new_password}
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   required
                 />
               </div>
-              <div className={"form-group "}>
+              <div className="form-group">
                 <label htmlFor="re_new_password">Confirm New Password</label>
                 <input
                   className="form-control"
                   type="password"
                   name="re_new_password"
                   value={re_new_password}
-                  onChange={(e) => onChange(e)}
+                  onChange={onChange}
                   required
                 />
                 <ul
                   style={{ marginTop: "12px", listStyle: "none" }}
                   className="validationErrorsList"
                 >
-                  {resetPasswordError.map((errorMessage, index) => {
-                    return (
-                      <li
-                        key={errorMessage}
-                        style={{
-                          fontSize: "14px",
-                          paddingTop: "4px",
-                        }}
-                      >
-                        <AiOutlineCheck size={18} style={{ marginRight: 10 }} />{" "}
-                        {errorMessage}
-                      </li>
-                    );
-                  })}
+                  {resetPasswordError.map((errorMessage, index) => (
+                    <li
+                      key={index}
+                      style={{ fontSize: "14px", paddingTop: "4px" }}
+                    >
+                      <AiOutlineCheck size={18} style={{ marginRight: 10 }} />
+                      {errorMessage}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -119,6 +117,7 @@ const ResetPasswordConfirmPage = () => {
                 className="authMain__button"
                 style={{ background: Colors.Primary }}
                 type="submit"
+                disabled={isLoading}
               >
                 {isLoading ? (
                   <div className="d-flex justify-content-center">
@@ -130,7 +129,7 @@ const ResetPasswordConfirmPage = () => {
                     />
                   </div>
                 ) : (
-                  <> {"Reset Password"}</>
+                  <>Reset Password</>
                 )}
               </button>
             </form>

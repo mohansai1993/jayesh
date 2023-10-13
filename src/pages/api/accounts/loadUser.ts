@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const cookies = cookie.parse(req?.headers?.cookie ?? "");
     const access = cookies?.access ?? false;
 
-    if (access === false) {
+    if (!access) {
       return res?.status(401)?.json({
         error: "User unauthorized to make this request",
       });
@@ -25,13 +25,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.get(`${API_URL}/auth/users/me/`, config);
 
       if (copterRes?.status === 200) {
-        const { name, email } = copterRes?.data
-        return res?.status(200)?.json({ 'name': name, 'email': email });
+        const { name, email } = copterRes?.data;
+        return res?.status(200)?.json({ name: name, email: email });
       }
       return res?.status(copterRes?.status)?.json({
         error: "Loading user failed",
       });
-    } catch (err) {
+    } catch (err: any) {
       return res?.status(500)?.json({
         error: "An error occurred in loading user",
       });

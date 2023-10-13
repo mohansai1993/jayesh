@@ -19,7 +19,7 @@ import SubscriptionModal from "@/components/modal/subscriptionPopUp";
 import PricingModal from "@/components/modal/pricingPopup";
 import { useModalReducer } from "reducers/modal";
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:any) {
     return checkAuth(context);
 }
 

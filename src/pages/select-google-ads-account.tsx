@@ -12,18 +12,17 @@ import Layout from "../hocs/layout";
 import { useGoogleAdsHierarchyReducer } from "../reducers/connectionAccounts";
 import { AppDispatch } from "../store";
 import { routes } from "../utils";
-import { parse } from 'cookie';
-
+import { parse } from "cookie";
 
 // dynamically import error page when redirected variable is false
-const ErrorPage = dynamic(() => import("next/error"))
+const ErrorPage = dynamic(() => import("next/error"));
 
-export async function getServerSideProps(context) {
-  const cookies = parse(context.req.headers?.cookie || '');
+export async function getServerSideProps(context: any) {
+  const cookies = parse(context.req.headers?.cookie || "");
   const tokenKey = cookies?.token_key;
 
   return {
-    props: { tokenKey }
+    props: { tokenKey },
   };
 }
 
@@ -43,7 +42,8 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
     // only called when token_key getting from query parameters
     try {
       const res =
-        tokenKey && (await dispatch(getGoogleAdsAccountHierarchy(tokenKey as string)));
+        tokenKey &&
+        (await dispatch(getGoogleAdsAccountHierarchy(tokenKey as string)));
       if (res?.success) {
         setLoading(false);
       }
@@ -78,7 +78,7 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
   // customer account handler
   const customerAccountHandler = (
     login_customer_id: string,
-    customer: Customer
+    customer: Customer,
   ) => {
     // push search page with query parameters
     router.push({
@@ -106,7 +106,7 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
       title="Adzviser | Select a Google Ads Account"
       content="Pick a Google Ads account from the account hierarchy below to start your marketing data search journey with Adzviser."
     >
-      <div className='card-outer'>
+      <div className="card-outer">
         <Card style={{ minWidth: "30%" }}>
           <Card.Header
             as="h5"
@@ -167,7 +167,7 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
                               onClick={() =>
                                 customerAccountHandler(
                                   rootCustomerMap[rootCustomerId]?.manager_id,
-                                  rootCustomerMap[rootCustomerId]
+                                  rootCustomerMap[rootCustomerId],
                                 )
                               }
                             >
@@ -197,7 +197,7 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
                                     customerAccountHandler(
                                       rootCustomerMap[rootCustomerId]
                                         ?.manager_id,
-                                      child
+                                      child,
                                     )
                                   }
                                   style={{ cursor: "pointer" }}
@@ -210,7 +210,7 @@ const SelectGoogleAdsAccount = ({ tokenKey }) => {
                       </div>
                     </div>
                   );
-                }
+                },
               )}
           </Card.Body>
         </Card>

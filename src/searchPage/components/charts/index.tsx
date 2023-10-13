@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 import dynamic from "next/dynamic";
@@ -21,6 +22,7 @@ interface AdzvizerChartInterface {
     | "rangeBar"
     | undefined;
   chartData?: { options: object; series: any[] };
+  
 }
 
 const MainCharts = ({ chartData, chartType }: AdzvizerChartInterface) => {

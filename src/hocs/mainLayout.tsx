@@ -4,9 +4,9 @@ import Header from "../components/header";
 import Head from "next/head";
 
 interface MainLayoutInterface {
-  title: string;
-  content: string;
-  children: React.ReactNode;
+  title?: string;
+  content?: string;
+  children?: React.ReactNode;
 }
 
 const MainLayout = ({ title, content, children }: MainLayoutInterface) => {

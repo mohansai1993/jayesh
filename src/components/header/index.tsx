@@ -61,53 +61,109 @@ const Header = () => {
                   >
                     Community
                   </button>
-                  <ul className="dropdown-menu">
+                  <ul className="dropdown-menu " style={{ width: "350px" }}>
                     <Link
-                      className="dropdown-item"
                       href={routes.blog}
-                      style={{
-                        color: "rgba(0,0,0,0.55)",
-                        fontWeight: "100",
-                      }}
+                      className=" text-decoration-none text-black hover:text-red"
                     >
-                      Blog
+                      <div style={{ margin: "0 24px" }}>
+                        <p
+                          style={{
+                            fontWeight: "600",
+                          }}
+                        >
+                          Blog
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "14px",
+                            color: "#777",
+                          }}
+                        >
+                          Stories about privacy, web analytics, and building a
+                          financially sustainable open source project.
+                        </p>
+                      </div>
                     </Link>
                     <Link
-                      className="dropdown-item"
                       href={routes.updates}
+                      className=" text-decoration-none text-black hover:text-red"
+                    >
+                      <div style={{ margin: "0 24px" }}>
+                        <p
+                          style={{
+                            fontWeight: "600",
+                          }}
+                        >
+                          Updates
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "14px",
+                            color: "#777",
+                          }}
+                        >
+                          Stories about privacy, web analytics, and building a
+                          financially sustainable open source project.
+                        </p>
+                      </div>
+                    </Link>
+                    <div
                       style={{
-                        color: "rgba(0,0,0,0.55)",
-                        fontWeight: "100",
+                        padding: " 24px",
+                        background: "#f4f1f1",
+                        fontSize: "14px",
+                        color: "grey",
+                        whiteSpace: "nowrap",
+                        display: "flex",
+                        textDecoration: "none",
                       }}
                     >
-                      Updates
-                    </Link>
-                    <Link
-                      className="dropdown-item"
-                      href="#"
-                      style={{
-                        color: "rgba(0,0,0,0.55)",
-                        fontWeight: "100",
-                      }}
-                    >
-                      Social Media
-                    </Link>
+                      <span>Follow Us on</span>
+                      <a
+                        href="#"
+                        style={{
+                          fontSize: "14px",
+                          display: "inline",
+                          textDecoration: "none",
+                          padding: "0 6px !important",
+                        }}
+                      >
+                        Twitter
+                      </a>
+                      <span>or</span>
+                      <a
+                        href="#"
+                        style={{
+                          fontSize: "14px",
+                          margin: "0",
+                          display: "inline",
+                          padding: "0 6px !important",
+                          textDecoration: "none",
+                        }}
+                      >
+                        Linkedin
+                      </a>
+                      <span>for more</span>
+                    </div>
                   </ul>
                 </div>
               </li>
+
               <li className="nav-item">
                 <Link className="nav-link" href="#connections">
                   Connections
                 </Link>
               </li>
             </ul>
+
             <div className="headerBtn d-flex gap-2">
-              <Link href={routes.login} className="btn f-13 text-main">
+              <Link href={routes.login} className="btn f-14 text-main">
                 Sign in
               </Link>
               <Link
                 href={routes.signup}
-                className="btn btn-main border-r-10 f-13"
+                className="btn btn-main border-r-10 f-14"
               >
                 Sign up
               </Link>

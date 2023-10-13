@@ -20,6 +20,7 @@ const Layout = ({
   children,
   isAuthRequired = true,
 }: LayoutInterface) => {
+
   const dispatch: AppDispatch = useDispatch();
 
   const { user } = useAuthReducer();
@@ -43,16 +44,7 @@ const Layout = ({
         <Navbar />
       </div>
       <div className="containter">{children}</div>
-      <span className="ps-4 f-16 text-gray medium-font d-flex footerBar">
-        © Adzviser LLC ·
-        <Link href={routes.privacy} className="nav-link p-0 px-1">
-          Privacy Policy
-        </Link>{" "}
-        |{" "}
-        <Link href={routes.terms} className="nav-link p-0 px-1">
-          Terms & Conditions
-        </Link>
-      </span>
+      <span className="ps-4 f-16 text-gray medium-font d-flex footerBar">© Adzviser LLC ·<Link href={routes.privacy} className="nav-link p-0 px-1">Privacy Policy</Link> | <Link href={routes.terms} className="nav-link p-0 px-1">Terms & Conditions</Link></span>
     </>
   );
 };

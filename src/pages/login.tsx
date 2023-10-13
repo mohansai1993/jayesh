@@ -16,16 +16,15 @@ import { REQUEST_HEADERS } from "commonRequestHeader";
 import cookie from "cookie";
 import { API_URL } from "../config";
 
-
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:any) {
   const { req } = context;
   const cookies = cookie.parse(req?.headers?.cookie ?? "");
   const access = cookies?.access ?? false;
 
-  if (access === false) {
+  if (!access) {
     return {
-      props: {}
-    }
+      props: {},
+    };
   }
   //console.log("req is: ", req)
   try {
@@ -33,38 +32,35 @@ export async function getServerSideProps(context) {
     const copterRes = await axios.post(
       `${API_URL}/auth/jwt/verify/`,
       body,
-      REQUEST_HEADERS
+      REQUEST_HEADERS,
     );
     if (copterRes?.data?.code !== "token_not_valid") {
       return {
         redirect: {
           destination: routes.setUp,
           permanent: false,
-        }
-      }
+        },
+      };
     }
     return {
-      props: {}
-    }
-
-  } catch (err) {
+      props: {},
+    };
+  } catch (err: any) {
     return {
-      props: {}
-    }
+      props: {},
+    };
   }
 }
 
 const LoginPage = () => {
-
   const [passwordType, setPasswordType] = useState("password");
   const togglePassword = () => {
     if (passwordType === "password") {
-      setPasswordType("text")
+      setPasswordType("text");
       return;
     }
-    setPasswordType("password")
-  }
-
+    setPasswordType("password");
+  };
 
   const dispatch: AppDispatch = useDispatch();
   const router = useRouter();
@@ -94,8 +90,8 @@ const LoginPage = () => {
 
   useEffect(() => {
     user && router.push(routes.setUp);
-  }, [user])
-  
+  }, [user]);
+
   return (
     <Layout
       title="Adzviser | Login"
@@ -105,7 +101,9 @@ const LoginPage = () => {
         <div className="authSignup">
           <div className="authMain">
             <div className="authMain__title text-center">
-              <h2 className="medium-font">Sign in to <span className="text-main bold-font">Adzviser</span></h2>
+              <h2 className="medium-font">
+                Sign in to <span className="text-main bold-font">Adzviser</span>
+              </h2>
             </div>
             <form onSubmit={(e) => onSubmit(e)} className="formInputs">
               <div className={"form-group"}>
@@ -126,7 +124,6 @@ const LoginPage = () => {
                 />
               </div>
               <div className={"form-group"}>
-
                 <input
                   className=""
                   type={passwordType}
@@ -140,14 +137,19 @@ const LoginPage = () => {
                 <Image
                   alt=""
                   onClick={togglePassword}
-                  src={passwordType === "password" ? images.hideeyeIcon : images.eyeIcon}
+                  src={
+                    passwordType === "password"
+                      ? images.hideeyeIcon
+                      : images.eyeIcon
+                  }
                   style={{ height: "100%" }}
                   priority={true}
                 />
               </div>
               <div className="form-group__password text-end">
-
-                <Link href={routes.resetPassword} className="tin-font f-16">Forgot Password?</Link>
+                <Link href={routes.resetPassword} className="tin-font f-16">
+                  Forgot Password?
+                </Link>
               </div>
 
               <button
@@ -171,7 +173,9 @@ const LoginPage = () => {
             </form>
             <p className="authMain__accountButton mt-30 text-gray f-16 regular-font text-center">
               Don&apos;t have an account?{" "}
-              <Link href={routes.signup} className="bold-font">Sign up</Link>
+              <Link href={routes.signup} className="bold-font">
+                Sign up
+              </Link>
             </p>
           </div>
         </div>

@@ -13,9 +13,13 @@ import images from "../utils/images";
 import { Button } from "react-bootstrap";
 import { openModal } from "actions/modal";
 
+
+
 const Navbar = () => {
+
   const dispatch: AppDispatch = useDispatch();
   const { user } = useAuthReducer();
+
 
   const router = useRouter();
 
@@ -28,14 +32,14 @@ const Navbar = () => {
     dispatch(openModal());
   };
 
+
+
   const guestLinks = () => (
     <>
       <li className="nav-item customNavItem">
         <Link
           className={
-            router.pathname === "/login"
-              ? "nav-link btn-primary f-13 round-10 border-0 all-center"
-              : "nav-link f-13"
+            router.pathname === "/login" ? "nav-link btn-primary f-13 round-10 border-0 all-center" : "nav-link f-13"
           }
           href={routes.login}
           style={{ color: Colors.Primary, fontWeight: "400" }}
@@ -48,15 +52,16 @@ const Navbar = () => {
         <Link
           className={
             router.pathname === "/login"
-              ? "nav-link f-13"
-              : "nav-link btn-primary f-13 round-10 border-0 all-center"
+              ? "nav-link f-13" : "nav-link btn-primary f-13 round-10 border-0 all-center"
           }
           href={routes.signup}
           style={{}}
         >
           Sign up
         </Link>
+
       </li>
+
     </>
   );
 
@@ -114,14 +119,14 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0">
-              {user !== null && router.pathname === "/set-up"
-                ? authLinks()
-                : guestLinks()}
+              {user !== null && router.pathname === "/set-up" ? authLinks() : guestLinks()}
             </ul>
           </div>
         </div>
       </nav>
-      <nav className="navbar navbar-expand-lg navbarDesktop box-shadow py-3 bg-white px-2">
+      <nav
+        className="navbar navbar-expand-lg navbarDesktop box-shadow py-3 bg-white px-2"
+      >
         <div className="container-fluid">
           <div style={{ width: "100%", display: "flex" }}>
             <div
@@ -165,9 +170,7 @@ const Navbar = () => {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav  mb-2 mb-lg-0">
-                    {user !== null && router.pathname === "/set-up"
-                      ? authLinks()
-                      : guestLinks()}
+                    {user !== null && (router.pathname === "/set-up") ? authLinks() : guestLinks()}
                   </ul>
                 </div>
               </div>

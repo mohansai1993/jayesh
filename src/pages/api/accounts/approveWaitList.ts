@@ -9,8 +9,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "PUT") {
     const cookies = cookie.parse(req.headers.cookie ?? "");
     const access = cookies.access ?? false;
-    
-    if (access === false) {
+
+    if (!access) {
       return res?.status(401)?.json({
         error: "User unauthorized to make this request",
       });
@@ -27,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.put(
         `${API_URL}/user_waitlist`,
         body,
-        config
+        config,
       );
       if (copterRes?.status === 200) {
         return res?.status(200)?.json(copterRes?.data);

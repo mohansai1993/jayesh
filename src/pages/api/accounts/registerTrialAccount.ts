@@ -11,7 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/user_waitlist`,
         body,
-        REQUEST_HEADERS
+        REQUEST_HEADERS,
       );
       if (copterRes?.status === 200) {
         return res
@@ -21,11 +21,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: copterRes?.data?.message,
       });
-    } catch (err) {
-      if(err?.response?.status===409){
+    } catch (err: any) {
+      if (err?.response?.status === 409) {
         return res?.status(409)?.json({
           error: err?.response?.data?.message,
-        });  
+        });
       }
       return res?.status(500)?.json({
         error: err?.response?.data?.message,

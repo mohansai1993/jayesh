@@ -13,7 +13,7 @@ interface Account {
   approved: boolean;
 }
 
-const ApprovedAccount = ({ account }) => {
+const ApprovedAccount = ({ account }:any) => {
   const [approve, setApprove] = useState(account?.approved);
   const approveBtnHandler = async (email: string) => {
     const body = JSON.stringify({ email: email });
@@ -22,12 +22,12 @@ const ApprovedAccount = ({ account }) => {
       const res = await axios.put(
         "/api/accounts/approveWaitList",
         body,
-        REQUEST_HEADERS
+        REQUEST_HEADERS,
       );
       if (res.status === 200) {
         successToaster(res?.data?.message);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
     }
   };
@@ -41,13 +41,16 @@ const ApprovedAccount = ({ account }) => {
           <Button
             variant={approve ? "success" : "info"}
             className="mx-4"
-            onClick={useCallback(() => { approveBtnHandler(account?.email); setApprove(true) }, [account?.email])}
+            onClick={useCallback(() => {
+              approveBtnHandler(account?.email);
+              setApprove(true);
+            }, [account?.email])}
           >
             {approve ? "Already approved" : "Approve now"}
           </Button>
         </div>
       </td>
-    </tr >
+    </tr>
   );
 };
 
@@ -60,13 +63,13 @@ const ApprovalPage = () => {
       if (user !== null) {
         const res = await axios.get(
           `/api/accounts/getWaitListAccount`,
-          REQUEST_HEADERS
+          REQUEST_HEADERS,
         );
         if (res?.data) {
           setWaitlistAccounts(res?.data?.data);
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
     }
   };
@@ -94,9 +97,7 @@ const ApprovalPage = () => {
                   <tbody>
                     {waitlistAccounts?.map((account) => {
                       const { id } = account;
-                      return <ApprovedAccount
-                        account={account}
-                        key={id} />
+                      return <ApprovedAccount account={account} key={id} />;
                     })}
                   </tbody>
                 </Table>

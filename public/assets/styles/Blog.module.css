@@ -1,0 +1,128 @@
+/* styles/Home.module.css */
+
+.container {
+  min-height: 100vh;
+  padding: 0 1rem; /* Adjust padding for better mobile readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  margin-top: 140px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.border {
+  width:100%;
+  border-top: 1.5px solid rgb(217, 214, 214);
+  margin-top: 32px;
+  justify-self: start;
+}
+.main > div {
+  margin: 0 auto;
+  max-width: 100%; /* Make sure content takes full width on small screens */
+  padding: 16px; /* Add padding for better mobile readability */
+  margin-top: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main > div > div > div > form {
+  gap: 16px;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.main > div > div > div > form > input {
+  height: 45px;
+}
+.main > div > div > div > form > button {
+  background-color: rgb(3, 130, 102);
+  height: 45px;
+  border: none;
+  padding: 0 16px;
+}
+.title {
+  margin: 0;
+  line-height: 1.15;
+  text-align: center;
+  font-size: 3rem; /* Adjust font size for better mobile readability */
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  width: calc(50% - 2rem); /* Two cards per row on small screens */
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1rem; /* Adjust font size for better mobile readability */
+}
+
+.logo {
+  height: 1em;
+}
+.post {
+  /* background-color: #e6f7ec; */
+  margin: 0 auto !important;
+  padding: 16px;
+  margin: 16px 0;
+}
+.time {
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: 500;
+  color: grey;
+}
+.title {
+  text-align: start;
+  font-size: 34px;
+  margin: 16px 0 !important;
+  font-weight: 600;
+}
+.path {
+  display: block;
+  color: #4f46e5; /* Tailwind: text-indigo-600 */
+  text-transform: uppercase; /* Tailwind: uppercase */
+  font-size: 0.875rem; /* Tailwind: text-sm */
+  letter-spacing: 0.05em; /* Tailwind: tracking-wide */
+  font-weight: 900;
+  margin: 36px 0 !important;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .grid {
+    width: 95%; /* Single column layout on very small screens */
+    margin: 0 auto;
+  }
+}

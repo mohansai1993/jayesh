@@ -12,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const copterRes = await axios.post(
         `${API_URL}/auth/users/reset_password_confirm/`,
         body,
-        REQUEST_HEADERS
+        REQUEST_HEADERS,
       );
       if (copterRes?.status === 204) {
         return res
@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res?.status(copterRes?.status)?.json({
         error: "Reset password confirmation failed",
       });
-    } catch (err) {
+    } catch (err: any) {
       return res?.status(500)?.json({
         error: err?.response?.data,
       });

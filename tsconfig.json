@@ -1,11 +1,8 @@
+//======= this is new file =========
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -18,12 +15,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    // set import aliases for components
     "baseUrl": "./src/",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ]
+      "@/components/*": ["components/*"],
+      "@": ["src/*"]
     },
     "plugins": [
       {
@@ -33,11 +28,10 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "public/assets/styles/styles.js",
+    "src/pages/search_disabled.jsx",
+    "src/searchPage/components/searchResult/index.jsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules", "**/*.ts", "**/*.tsx"]
 }

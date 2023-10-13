@@ -14,7 +14,6 @@ export const routes = {
   index: "/",
   signup: "signup",
   blog: "blog",
-  npost: "npost",
   updates: "updates",
   resetPassword: "reset-password",
   approval: "approval",
@@ -143,13 +142,13 @@ export const FILTERED_COLUMNS = [
 ];
 
 // This function is used in both setUp and search for authentication and getting value from cookies purposes.
-export async function checkAuth(context) {
+export async function checkAuth(context: any) {
   const { req } = context;
   const cookies = cookie?.parse(req?.headers?.cookie ?? "");
   const access = cookies?.access ?? false;
   const tokenKeyFromCookie = cookies?.token_key ?? "";
 
-  if (access === false) {
+  if (!access) {
     return {
       redirect: {
         destination: routes.login,
@@ -173,7 +172,7 @@ export async function checkAuth(context) {
         permanent: false,
       },
     };
-  } catch (err) {
+  } catch (err: any) {
     return {
       redirect: {
         destination: routes.login,

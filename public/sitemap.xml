@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <!-- Homepage -->
+    <url>
+        <loc>https://adzviser.com/</loc>
+        <lastmod>2023-10-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <video:video>
+            <video:thumbnail_loc>https://adzviser.com/assets/images/bingAdsDemoThumb.png</video:thumbnail_loc>
+            <video:title>ChatGPT + Adzviser + Bing Ads Keywords Research</video:title>
+            <video:description>This is a video demo of how to use ChatGPT with Adzviser plugin to do Bing Ads keywords research</video:description>
+            <video:content_loc>https://adzviser.com/assets/images/bingAdsKeywordsDemo_acc.mp4</video:content_loc>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://adzviser.com/assets/images/fbInsightsDemoThumb.png</video:thumbnail_loc>
+            <video:title>ChatGPT + Adzviser + Facebook Page Insights Research</video:title>
+            <video:description>This is a video demo of how to use ChatGPT with Adzviser plugin to do Facebook Insights research</video:description>
+            <video:content_loc>https://adzviser.com/assets/images/fbPagePostDemo_acc.mp4</video:content_loc>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://adzviser.com/assets/images/googleAdsDemoThumb.png</video:thumbnail_loc>
+            <video:title>ChatGPT + Adzviser + Google Ads</video:title>
+            <video:description>This is a video demo of how to use ChatGPT with Adzviser plugin to do Google Ads analysis</video:description>
+            <video:content_loc>https://adzviser.com/assets/images/googleAdsIsDemo_acc.mp4</video:content_loc>
+        </video:video>
+        <video:video>
+            <video:thumbnail_loc>https://adzviser.com/assets/images/ga4DemoThumb.png</video:thumbnail_loc>
+            <video:title>ChatGPT + Adzviser + Google Analytics 4 Research</video:title>
+            <video:description>This is a video demo of how to use ChatGPT with Adzviser plugin to do Google Analytics 4 analysis</video:description>
+            <video:content_loc>https://adzviser.com/assets/images/ga4TrafficSourceDemo_acc.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <!-- Login -->
+    <url>
+        <loc>https://adzviser.com/login</loc>
+        <lastmod>2023-09-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sign up -->
+    <url>
+        <loc>https://adzviser.com/signup</loc>
+        <lastmod>2023-09-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact us -->
+    <url>
+        <loc>https://adzviser.com/contact-us</loc>
+        <lastmod>2023-10-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Pricing -->
+    <url>
+        <loc>https://adzviser.com/#price</loc>
+        <lastmod>2023-10-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+
+    <!-- Other pages would follow in a similar manner... -->
+
+</urlset>

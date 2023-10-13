@@ -2,8 +2,7 @@ import axios from "axios";
 import cookie from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 import { API_URL } from "../../../config";
-import { AxiosResponse, AxiosRequestConfig } from 'axios';
-
+import { AxiosResponse, AxiosRequestConfig } from "axios";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 
@@ -12,7 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const cookies = cookie.parse(req.headers.cookie ?? "");
     const access = cookies.access ?? false;
 
-    if (access === false) {
+    if (!access) {
       return res.status(401).json({
         error: "User unauthorized to make this request",
       });
@@ -22,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const body = JSON.stringify({
       search_query,
       workspace_name,
-      "client_id": "Dokodemo"
+      client_id: "Dokodemo",
     });
 
     try {
@@ -39,9 +38,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(copterRes.status).json({
         error: "Adzviser search failed",
       });
-    } catch (err) {
+    } catch (err: any) {
       return res.status(500).json({
-        error: err?.response?.data
+        error: err?.response?.data,
       });
     }
   }
