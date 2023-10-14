@@ -18,7 +18,7 @@
   align-items: center;
 }
 .border {
-  width:100%;
+  width: 100%;
   border-top: 1.5px solid rgb(217, 214, 214);
   margin-top: 32px;
   justify-self: start;
@@ -117,8 +117,8 @@
   margin: 36px 0 !important;
   text-decoration: none;
 }
-.flex{
-  display: flex!important;
+.flex {
+  display: flex !important;
 }
 @media (max-width: 600px) {
   .grid {
